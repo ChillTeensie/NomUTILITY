@@ -49,7 +49,7 @@ class QuickCalls {
                 trace("unsupported uniform type at the moment :( \nplease report to the GitHub!!");
             });
     
-            setDaUniform(uniformName, cast(uniformValue, Dynamic)); // Cast uniformValue to the correct type
+            setDaUniform(uniformName, uniformValue); // i dont think i need to cast actually
         }
         return shad;
     }    
