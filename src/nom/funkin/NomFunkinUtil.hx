@@ -32,8 +32,8 @@ import flixel.util.FlxColor;
 import flixel.util.FlxSort;
 import flixel.util.FlxStringUtil;
 import flixel.util.FlxTimer;
-
-public class NomFunkinUtil {
+import flash.display.BlendMode;
+class NomFunkinUtil {
     /*  - asset (automatically knows which folder via stage name)
         - position 
         - scroll factor
@@ -52,16 +52,13 @@ public class NomFunkinUtil {
         ?extraArgs:Array<Dynamic>
     ) 
     {
-        var i = new FlxSprite()
-            .loadGraphic(Paths.image('bgs/' + PlayState.instance.curStage + asset, 'shared'))
-            .scrollFactor.set(scroll[0], scroll[1]);
-
+        var i = new FlxSprite(scroll[0], scroll[1], Paths.image('bgs/' + PlayState.curStage + asset, 'shared'));
         i.setPosition(pos[0], pos[1]);
 
         if(scalefac != -1) i.scale.scale(scalefac); // scale.scale is abstract so :v
         if(blend != null) i.blend = blend;
         if (infront == true) PlayState.instance.add(i);
-        else PlayState.instance.foregroundSprites.push(i);
+        else PlayState.instance.foregroundSpritesToAdd.push(i);
 
         if (extraArgs != null)
             for (arg in extraArgs) if (arg.length >= 2)  Reflect.setProperty(i, Std.string(arg[0]), arg[1]);
