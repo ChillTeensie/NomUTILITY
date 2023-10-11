@@ -64,12 +64,12 @@ class QuickCalls {
         return text;
     }
 
-    public static function quickSprite(x:Float, y:Float, graphicPath:Dynamic, parent:FlxGroup, scale:Array<Float>, scrollFactor:FlxPoint = null):FlxSprite {
+    /*public static function quickSprite(x:Float, y:Float, graphicPath:Dynamic, parent:FlxGroup, scale:Array<Float>, scrollFactor:FlxPoint = null):FlxSprite {
         var sprite:FlxSprite = new FlxSprite(x, y, graphicPath).scale.set(scale[0], scale[1]);
         if (scrollFactor != null) {
             sprite.scrollFactor = scrollFactor;
         }
         if(parent!=null)parent.add(sprite);
         return sprite;
-    }
+    }*/
 }
