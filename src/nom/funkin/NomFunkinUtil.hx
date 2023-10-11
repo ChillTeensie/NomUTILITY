@@ -53,7 +53,7 @@ class NomFunkinUtil {
     ) 
     {
         var i = new FlxSprite(pos[0], pos[1]);
-        i.loadGraphic(Paths.image('bgs/' + PlayState.curStage + asset, 'shared'));
+        i.loadGraphic(Paths.image(('bgs/' + PlayState.curStage + "/" + asset), 'shared'));
         i.scrollFactor.set(scroll[0], scroll[1]);
 
         if(scalefac != -1) i.scale.scale(scalefac); // scale.scale is abstract so :v
