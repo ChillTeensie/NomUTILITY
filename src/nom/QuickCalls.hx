@@ -30,30 +30,31 @@ class QuickCalls {
             ]
         );
     */
-    public static function quickShader(source:String, uniformSets:Array<Array<Dynamic>):FlxRuntimeShader {
+    public static function quickShader(source:String, uniformSets:Array<Array<Dynamic>>):FlxRuntimeShader {
         var shad = new FlxRuntimeShader(source);
-        
-        var type_to_set:Map<Class<Dynamic>, Dynamic->Void> = [
+    
+        var type_to_set:Map<String, Dynamic->Void> = [
             'bool' => shad.setBool,
             "int" => shad.setInt,
             "float" => shad.setFloat,
             "string" => shad.setString
         ];
-    
+
         for (arg in uniformSets) {
             var uniformType:String = arg[0];  // type AS STRING THO!!!
-            var uniformName:String = arg[1]; 
+            var uniformName:String = arg[1];
             var uniformValue:Dynamic = arg[2];
-            
-            var setDaUniform:Dynamic->Void = type_to_set.get(uniformType.toLowerCase(), function(lol) { 
-                trace("unsupported uniform type at the moment :( \nplease report to the github!!");
+    
+            var setDaUniform:Dynamic->Void = type_to_set.get(uniformType.toLowerCase(), function(lol) {
+                trace("unsupported uniform type at the moment :( \nplease report to the GitHub!!");
             });
     
-            setDaUniform(uniformName, uniformValue);
+            setDaUniform(uniformName, cast(uniformValue, Dynamic)); // Cast uniformValue to the correct type
         }
         return shad;
-    }
+    }    
     #end
+
     public static function quickSprite(x:Float, y:Float, graphicPath:Dynamic, parent:FlxGroup, scale:Array<Float>, scrollFactor:FlxPoint = null):FlxSprite {
         var sprite:FlxSprite = new FlxSprite(x, y, graphicPath).scale.set(scale[0], scale[1]);
         if (scrollFactor != null) {
