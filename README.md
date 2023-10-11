@@ -8,7 +8,7 @@ So Far its just me but if u wanna help read the contribution part of this readme
 
 ## Overview
 
-This is a utility package created by [Your Name] for HaxeFlixel developers. It provides a set of helpful functions and classes to streamline game development with HaxeFlixel.
+This is a utility package for HaxeFlixel developers. It provides a set of helpful functions and classes to streamline game development with HaxeFlixel.
 
 ## Installation
 
