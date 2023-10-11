@@ -1,4 +1,4 @@
-package nom;
+package nom.funkin;
 
 // if anyone uses this pls credit me on ya project :p
 
@@ -33,7 +33,7 @@ import flixel.util.FlxSort;
 import flixel.util.FlxStringUtil;
 import flixel.util.FlxTimer;
 
-public class NomUtil {
+public class NomFunkinUtil {
     /*  - asset (automatically knows which folder via stage name)
         - position 
         - scroll factor
