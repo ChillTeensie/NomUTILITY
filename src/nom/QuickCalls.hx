@@ -55,6 +55,15 @@ class QuickCalls {
     }    
     #end
 
+    public static function quickText(x:Float, y:Float, text:String, size:Int, ?width:Int = 0, ?extraParams:Array<Dynamic>):FlxText{
+        var text:FlxText = new FlxText(x,y,width,text,size);
+
+        if (extraArgs != null)
+            for (arg in extraArgs) if (arg.length >= 2)  Reflect.setProperty(text, Std.string(arg[0]), arg[1]);
+
+        return text;
+    }
+
     public static function quickSprite(x:Float, y:Float, graphicPath:Dynamic, parent:FlxGroup, scale:Array<Float>, scrollFactor:FlxPoint = null):FlxSprite {
         var sprite:FlxSprite = new FlxSprite(x, y, graphicPath).scale.set(scale[0], scale[1]);
         if (scrollFactor != null) {
