@@ -59,6 +59,29 @@ import flash.net.URLLoaderDataFormat;
         trace("Response Data:", responseData);
     });
 
+
+
+
+
+
+
+
+
+
+    function haxeFlixelLeaderboardPost(content:Dynamic) {
+        var apiConfig = {
+            baseUrl : "https://airtable/urleaderboardthing",
+            apiKey : 'my api rizzly gyatt kai cenat only in ohio sigma fanum tax key',
+            method: POST
+        };
+        
+        var api = new NomEasyApi(apiConfig);
+        
+        api.makeRequest(POST, "leaderboard1", [content.score, content.username, content.playerID], function(response:Dynamic) {
+                trace("Leaderboard Updated WOOHOO!!!!");
+         }
+     }
+
 */
 enum HttpMethod {
     GET;
@@ -127,4 +150,14 @@ class NomEasyApi {
     private function loadRequest(urlLoader:URLLoader, urlRequest:URLRequest):Void {
         urlLoader.load(urlRequest);
     }
-}
+}    var apiConfig = {
+        baseUrl : "https://airtable/urleaderboardthing",
+        apiKey : 'my api rizzly gyatt kai cenat only in ohio sigma fanum tax key',
+        method: POST
+    };
+    
+    var api = new NomEasyApi(apiConfig);
+    
+    api.makeRequest(POST, "leaderboard1", null, function(response:Dynamic) {
+            trace("Leaderboard Updated WOOHOO!!!!");
+     }
