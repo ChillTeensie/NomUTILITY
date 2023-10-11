@@ -5,7 +5,7 @@
 
 ## Credits
 
-#Main Contributers: 
+# Main Contributers: 
 
    Nom (me), 
 
@@ -14,7 +14,7 @@
    ChillTeensie
 
 
-#Indirect Contributers: 
+# Indirect Contributers: 
 
    Nebula the zoura (AL Filters on experimental branch)
 
