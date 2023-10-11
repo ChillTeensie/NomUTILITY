@@ -58,7 +58,7 @@ class NomFunkinUtil {
 
         if(scalefac != -1) i.scale.scale(scalefac); // scale.scale is abstract so :v
         if(blend != null) i.blend = blend;
-        if (infront == true) PlayState.instance.add(i);
+        if (infront == false) PlayState.instance.add(i);
         else PlayState.instance.foregroundSpritesToAdd.push(i);
 
         if (extraArgs != null)
