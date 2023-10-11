@@ -5,7 +5,22 @@
 
 ## Credits
 
-So Far its just me but if u wanna help read the contribution part of this readme
+Main Contributers: 
+
+   Nom (me), 
+
+   Ne_Eo (maybe)
+
+   ChillTeensie
+
+
+Indirect Contributers: 
+
+   Nebula the zoura (AL Filters on experimental branch)
+
+   flixel devs obviously :) they are awsome
+
+   haxe discord server for suggestions
 
 ![Haxe Logo](images/haxe-logo-large.png)
 
