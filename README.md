@@ -4,7 +4,7 @@
 
 So Far its just me but if u wanna help read the contribution part of this readme
 
-![Haxe Logo](images/haxe_logo.png)
+![Haxe Logo](images/haxe-logo-large.png)
 
 ## Overview
 
