@@ -24,12 +24,12 @@
 
 ![Haxe Logo](images/haxe-logo-large.png)
 
-## Overview
+# Overview
 
 
 This is a utility package for HaxeFlixel developers. It provides a set of helpful functions and classes to streamline game development with HaxeFlixel.
 
-## Installation
+# Installation
 
 To use this utility package in your HaxeFlixel project, follow these simple steps:
 
@@ -43,7 +43,7 @@ To use this utility package in your HaxeFlixel project, follow these simple step
 
 ![Installation GIF](images/installation.gif)
 
-## Usage
+# Usage
 
 Once you've installed the package, you can start using its features in your HaxeFlixel project. Below are some key points on how to use it:
 
@@ -63,9 +63,9 @@ Once you've installed the package, you can start using its features in your Haxe
    ```	
 3. If you encounter any issues or have questions, feel free to open an issue on this GitHub repository for support.
 
-## Contributing
+# Contributing
 
-TO CONTRIBUTE U CAN DO THE FOLLOWING :)
+## TO CONTRIBUTE U CAN DO THE FOLLOWING :)
 
 -Fork this repository.
 
