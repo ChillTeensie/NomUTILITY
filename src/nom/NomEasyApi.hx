@@ -34,6 +34,12 @@ import flixel.util.FlxStringUtil;
 import flixel.util.FlxTimer;
 import flash.display.BlendMode;
 import haxe.Http;
+import flash.net.URLRequest;
+import flash.net.URLRequestHeader;
+import flash.net.URLLoader;
+import flash.events.Event;
+import flash.events.IOErrorEvent;
+import flash.net.URLLoaderDataFormat;
 
 
 /* Example:
