@@ -53,6 +53,30 @@ class QuickCalls {
         }
         return shad;
     }    
+
+    public static function quickPortShader(source:String, uniformSets:Array<Array<Dynamic>>):FlxRuntimeShader {
+        var shad = new ShadertoyPorter(source).portShader;
+    
+        var type_to_set:Map<String, Dynamic->Void> = [
+            'bool' => shad.setBool,
+            "int" => shad.setInt,
+            "float" => shad.setFloat,
+            "string" => shad.setString
+        ];
+
+        for (arg in uniformSets) {
+            var uniformType:String = arg[0]; 
+            var uniformName:String = arg[1];
+            var uniformValue:Dynamic = arg[2];
+    
+            var setDaUniform:Dynamic->Void = type_to_set.get(uniformType.toLowerCase(), function(lol) {
+                trace("unsupported uniform type at the moment :( \nplease report to the GitHub!!");
+            });
+    
+            setDaUniform(uniformName, uniformValue);
+        }
+        return shad;
+    }    
     #end
 
     public static function quickText(x:Float, y:Float, text:String, size:Int, ?width:Int = 0, ?extraParams:Array<Dynamic>):FlxText{
