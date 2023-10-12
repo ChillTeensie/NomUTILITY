@@ -1,0 +1,13 @@
+
+tpl/export/windows/haxe/release.hxml
+tpl/export/windows/haxe/ManifestResources.hx
+tpl/export/windows/haxe/final.hxml
+tpl/export/windows/haxe/debug.hxml
+tpl/export/windows/haxe/ApplicationMain.hx
+tpl/export/windows/bin/manifest/default.json
+tpl/export/windows/bin/lime.ndll
+tpl/export/windows/bin/assets/sounds/sounds-go-here.txt
+tpl/export/windows/bin/assets/sounds/sound.mp3
+tpl/export/windows/bin/assets/music/music-goes-here.txt
+tpl/export/windows/bin/assets/images/images-go-here.txt
+tpl/export/windows/bin/assets/data/data-goes-here.txt
