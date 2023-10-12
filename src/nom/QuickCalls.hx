@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup;
 import flixel.math.FlxPoint;
+import flixel.effects.particles.FlxEmitter;
 
 #if !flash 
 import flixel.addons.display.FlxRuntimeShader;
@@ -95,5 +96,50 @@ class QuickCalls {
         }
         if(parent!=null)parent.add(sprite);
         return sprite;
+    }
+
+
+    public static function quickAnimatedSprite(x:Float, y:Float, graphicPath:Dynamic, parent:FlxGroup, scale:Array<Float>, frames:Array<Int>, frameRate:Float, animName:String = "animation1", scrollFactor:FlxPoint = null):FlxSprite {
+        var sprite:FlxSprite = new FlxSprite(x, y, graphicPath).scale.set(scale[0], scale[1]);
+        sprite.animation.add(animName, frames, frameRate, true);
+        sprite.play(animName);
+        if (scrollFactor != null) {
+            sprite.scrollFactor = scrollFactor;
+        }
+        if (parent != null) parent.add(sprite);
+        return sprite;
+    }
+
+    public static function quickParticleEmitter(
+            x:Float = 0, 
+            y:Float = 0, 
+            width:Float = 1280, 
+            height:Float = 720, 
+            particleClass:Class<T> = null,
+            maxParticles:Int = 10, 
+            particleLifespan:Float = 3,  
+            autoBuffer:Bool = false, 
+            frequency:Float = 0.1, 
+            ?gravity:FlxPoint, 
+            ?blend:BlendMode
+            
+        ):FlxEmitter
+
+        {
+            var emitter:FlxEmitter = new FlxEmitter(x, y, maxParticles);
+
+            emitter.width = width;
+            emitter.height = height;
+            emitter.particleClass = particleClass;
+            emitter.lifespan = particleLifespan;
+            emitter.frequency = frequency;
+
+            if (gravity != null) emitter.gravity = gravity;
+            if(emitter != null) emitter.blend = blend; 
+
+
+            emitter.autoBuffer = autoBuffer; 
+
+            return emitter;
     }
 }
