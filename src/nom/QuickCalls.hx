@@ -6,61 +6,44 @@ import flixel.group.FlxGroup;
 import flixel.math.FlxPoint;
 import flixel.effects.particles.FlxEmitter;
 
-#if !flash 
+#if !flash
 import flixel.addons.display.FlxRuntimeShader;
+import nom.shaders.ShadertoyPorter;
 #end
-class QuickCalls {
 
+class QuickCalls {
     #if !flash
 
-    // EXAMPLE:
-    /*
-
-        var shader:FlxRuntimeShader = QuickCalls.quickShader(
-            "
-                #pragma header
-                uniform float lol;
-
-                void main() 
-                {
-                    gl_FragColor = texture2D(bitmap, openfl_TextureCoordv).brga;
-                }
-            ",
-            [
-                ["Float", lol, 0.1]
-            ]
-        );
-    */
-        /**
+    /**
      * Create and configure a custom shader for use in your game.
      *
      * @param source The shader source code.
      * @param uniformSets An array of uniform settings for the shader.
      * @return A configured FlxRuntimeShader instance.
      */
-    public static function quickShader(source:String, uniformSets:Array<Array<Dynamic>>):FlxRuntimeShader {
-        var shad = new FlxRuntimeShader(source);
-    
-        var type_to_set:Map<String, Dynamic->Void> = [
-            'bool' => shad.setBool,
-            "int" => shad.setInt,
-            "float" => shad.setFloat,
-            "string" => shad.setString
+    public static function quickShader(source:String, uniformSets:Array<Dynamic>):FlxRuntimeShader {
+        var shader = new FlxRuntimeShader(source);
+
+        var type_to_set = [
+            'bool' => shader.setBool,
+            'int' => shader.setInt,
+            'float' => shader.setFloat,
+            'string' => shader.setString
         ];
 
         for (arg in uniformSets) {
-            var uniformType:String = arg[0];  // type AS STRING THO!!!
+            var uniformType:String = arg[0];
             var uniformName:String = arg[1];
             var uniformValue:Dynamic = arg[2];
-    
-            var setDaUniform:Dynamic->Void = type_to_set.get(uniformType.toLowerCase(), function(lol) {
-                trace("unsupported uniform type at the moment :( \nplease report to the GitHub!!");
+
+            var setUniform = type_to_set.get(uniformType.toLowerCase(), function(lol) {
+                trace('unsupported uniform type at the moment :(\nplease report to the GitHub!!');
             });
-    
-            setDaUniform(uniformName, uniformValue); // i dont think i need to cast actually
+
+            setUniform(uniformName, uniformValue);
         }
-        return shad;
-    }    
+        return shader;
+    }
 
     /**
      * Create and configure a shader ported from Shadertoy for use in your game.
@@ -69,77 +52,81 @@ class QuickCalls {
      * @param uniformSets An array of uniform settings for the shader.
      * @return A configured FlxRuntimeShader instance.
      */
-    public static function quickPortShader(source:String, uniformSets:Array<Array<Dynamic>>):FlxRuntimeShader {
-        var shad = new ShadertoyPorter(source).portShader;
-    
-        var type_to_set:Map<String, Dynamic->Void> = [
-            'bool' => shad.setBool,
-            "int" => shad.setInt,
-            "float" => shad.setFloat,
-            "string" => shad.setString
+    public static function quickPortShader(source:String, uniformSets:Array<Dynamic>):FlxRuntimeShader {
+        var shader = new ShadertoyPorter(source).portShader;
+
+        var type_to_set = [
+            'bool' => shader.setBool,
+            'int' => shader.setInt,
+            'float' => shader.setFloat,
+            'string' => shader.setString
         ];
 
         for (arg in uniformSets) {
-            var uniformType:String = arg[0]; 
+            var uniformType:String = arg[0];
             var uniformName:String = arg[1];
             var uniformValue:Dynamic = arg[2];
-    
-            var setDaUniform:Dynamic->Void = type_to_set.get(uniformType.toLowerCase(), function(lol) {
-                trace("unsupported uniform type at the moment :( \nplease report to the GitHub!!");
+
+            var setUniform = type_to_set.get(uniformType.toLowerCase(), function(lol) {
+                trace('unsupported uniform type at the moment :(\nplease report to the GitHub!!');
             });
-    
-            setDaUniform(uniformName, uniformValue);
+
+            setUniform(uniformName, uniformValue);
         }
-        return shad;
-    }    
+        return shader;
+    }
     #end
 
-
     /**
-     * Create a FlxText object with optional additional parameters.
+     * Create a FlxText instance with optional additional parameters.
      *
-     * @param x The x-coordinate of the text.
-     * @param y The y-coordinate of the text.
+     * @param x The x position of the text.
+     * @param y The y position of the text.
      * @param text The text content.
      * @param size The font size.
      * @param width Optional width of the text.
      * @param extraParams An array of additional parameters for the FlxText.
      * @return A configured FlxText instance.
      */
-    public static function quickText(x:Float, y:Float, text:String, size:Int, ?width:Int = 0, ?extraParams:Array<Dynamic>):FlxText{
-        var text:FlxText = new FlxText(x,y,width,text,size);
+    public static function quickText(x:Float, y:Float, text:String, size:Int, ?width:Int = 0, ?extraParams:Array<Dynamic>):FlxText {
+        var flxText:FlxText = new FlxText(x, y, width, text, size);
 
-        if (extraArgs != null)
-            for (arg in extraArgs) if (arg.length >= 2)  Reflect.setProperty(text, Std.string(arg[0]), arg[1]);
+        if (extraParams != null) {
+            for (arg in extraParams) {
+                if (arg.length >= 2) {
+                    Reflect.setProperty(flxText, Std.string(arg[0]), arg[1]);
+                }
+            }
+        }
 
-        return text;
+        return flxText;
     }
 
     /**
-     * Create and configure a FlxSprite object with additional options.
+     * Create and configure a FlxSprite instance with additional options.
      *
-     * @param x The x-coordinate of the sprite.
-     * @param y The y-coordinate of the sprite.
+     * @param x The x position of the sprite.
+     * @param y The y position of the sprite.
      * @param graphicPath The path to the sprite's graphic.
-     * @param parent The parent FlxGroup to add the sprite to.
+     * @param parent The FlxGroup to add the sprite to.
      * @param scale An array of x and y scale values.
      * @param scrollFactor Optional scroll factor for the sprite.
      * @return A configured FlxSprite instance.
      */
-    public static function quickSprite(x:Float, y:Float, graphicPath:Dynamic, parent:FlxGroup, scale:Array<Float>, scrollFactor:FlxPoint = null):FlxSprite {
+    public static function quickSprite(x:Float, y:Float, graphicPath:Dynamic, parent:FlxGroup, scale:Array<Float>, ?scrollFactor:FlxPoint = null):FlxSprite {
         var sprite:FlxSprite = new FlxSprite(x, y, graphicPath).scale.set(scale[0], scale[1]);
         if (scrollFactor != null) {
             sprite.scrollFactor = scrollFactor;
         }
-        if(parent!=null)parent.add(sprite);
+        if (parent != null) parent.add(sprite);
         return sprite;
     }
 
     /**
      * Create and configure an animated FlxSprite object.
      *
-     * @param x The x-coordinate of the sprite.
-     * @param y The y-coordinate of the sprite.
+     * @param x The x position of the sprite.
+     * @param y The y position of the sprite.
      * @param graphicPath The path to the sprite's graphic.
      * @param parent The parent FlxGroup to add the sprite to.
      * @param scale An array of x and y scale values.
@@ -147,9 +134,9 @@ class QuickCalls {
      * @param frameRate The animation frame rate.
      * @param animName The name of the animation.
      * @param scrollFactor Optional scroll factor for the sprite.
-     * @return A configured animated FlxSprite instance.
+     * @return a configured animated FlxSprite instance.
      */
-    public static function quickAnimatedSprite(x:Float, y:Float, graphicPath:Dynamic, parent:FlxGroup, scale:Array<Float>, frames:Array<Int>, frameRate:Float, animName:String = "animation1", scrollFactor:FlxPoint = null):FlxSprite {
+    public static function quickAnimatedSprite(x:Float, y:Float, graphicPath:Dynamic, parent:FlxGroup, scale:Array<Float>, frames:Array<Int>, frameRate:Float, ?animName:String = "animation1", ?scrollFactor:FlxPoint = null):FlxSprite {
         var sprite:FlxSprite = new FlxSprite(x, y, graphicPath).scale.set(scale[0], scale[1]);
         sprite.animation.add(animName, frames, frameRate, true);
         sprite.play(animName);
@@ -163,49 +150,45 @@ class QuickCalls {
     /**
      * Create and configure a particle emitter for particle effects.
      *
-     * @param x The x-coordinate of the emitter.
-     * @param y The y-coordinate of the emitter.
+     * @param x The x position of the emitter.
+     * @param y The y position of the emitter.
      * @param width The width of the emitter.
      * @param height The height of the emitter.
-     * @param particleClass The class for custom particles (optional).
+     * @param particleClass The class for custom particles (optional) :).
      * @param maxParticles The maximum number of particles.
      * @param particleLifespan The lifespan of each particle.
      * @param autoBuffer Whether to automatically buffer particles.
-     * @param frequency The emission frequency.
+     * @param frequency emission frequency.
      * @param gravity Optional gravity settings.
      * @param blend Optional blend mode.
-     * @return A configured FlxEmitter instance for particle effects.
+     * @return A configured FlxEmitter instance for particle effects ready to be used >:D
      */
     public static function quickParticleEmitter(
-            x:Float = 0, 
-            y:Float = 0, 
-            width:Float = 1280, 
-            height:Float = 720, 
-            particleClass:Class<T> = null,
-            maxParticles:Int = 10, 
-            particleLifespan:Float = 3,  
-            autoBuffer:Bool = false, 
-            frequency:Float = 0.1, 
-            ?gravity:FlxPoint, 
-            ?blend:Null<BlendMode>
-            
-        ):FlxEmitter
+        x:Float = 0,
+        y:Float = 0,
+        width:Float = 1280,
+        height:Float = 720,
+        particleClass:Dynamic,
+        maxParticles:Int = 10,
+        particleLifespan:Float = 3,
+        autoBuffer:Bool = false,
+        frequency:Float = 0.1,
+        ?gravity:FlxPoint = null,
+        ?blend:BlendMode = null
+    ):FlxEmitter {
+        var emitter:FlxEmitter = new FlxEmitter(x, y, maxParticles);
 
-        {
-            var emitter:FlxEmitter = new FlxEmitter(x, y, maxParticles);
+        emitter.width = width;
+        emitter.height = height;
+        emitter.particleClass = particleClass;
+        emitter.lifespan = particleLifespan;
+        emitter.frequency = frequency;
 
-            emitter.width = width;
-            emitter.height = height;
-            emitter.particleClass = particleClass;
-            emitter.lifespan = particleLifespan;
-            emitter.frequency = frequency;
+        if (gravity != null) emitter.gravity = gravity;
+        if (blend != null) emitter.blend = blend;
 
-            if (gravity != null) emitter.gravity = gravity;
-            if(blend != null) emitter.blend = blend; 
+        emitter.autoBuffer = autoBuffer;
 
-
-            emitter.autoBuffer = autoBuffer; 
-
-            return emitter;
+        return emitter;
     }
 }
