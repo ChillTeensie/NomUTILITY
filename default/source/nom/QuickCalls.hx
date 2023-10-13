@@ -15,20 +15,20 @@ class QuickCalls {
     #if !flash
 
     /**
-    * Create and configure a custom shader for use in your game.
-    *
-    * @param source The shader source code.
-    * @param uniformSets An array of uniform settings for the shader.
-    * @return A configured FlxRuntimeShader instance.
-    */
+     * Create and configure a custom shader for use in your game.
+     *
+     * @param source The shader source code.
+     * @param uniformSets An array of uniform settings for the shader.
+     * @return A configured FlxRuntimeShader instance.
+     */
     public static function quickShader(source:String, uniformSets:Array<Dynamic>):FlxRuntimeShader {
-        var shad = new FlxRuntimeShader(source);
+        var shader = new FlxRuntimeShader(source);
 
         var type_to_set = [
-            'bool' => shad.setBool,
-            'int' => shad.setInt,
-            'float' => shad.setFloat,
-            'string' => shad.setString
+            'bool' => shader.setBool,
+            'int' => shader.setInt,
+            'float' => shader.setFloat,
+            'string' => shader.setString
         ];
 
         for (arg in uniformSets) {
@@ -36,13 +36,13 @@ class QuickCalls {
             var uniformName:String = arg[1];
             var uniformValue:Dynamic = arg[2];
 
-            var setDaUniform = type_to_set.get(uniformType.toLowerCase(), function(lol) {
+            var setUniform = type_to_set.get(uniformType.toLowerCase(), function(lol) {
                 trace('unsupported uniform type at the moment :(\nplease report to the GitHub!!');
             });
 
-            setDaUniform(uniformName, uniformValue);
+            setUniform(uniformName, uniformValue);
         }
-        return shad;
+        return shader;
     }
 
     /**
@@ -53,13 +53,13 @@ class QuickCalls {
      * @return A configured FlxRuntimeShader instance.
      */
     public static function quickPortShader(source:String, uniformSets:Array<Dynamic>):FlxRuntimeShader {
-        var shad = new ShadertoyPorter(source).portShader;
+        var shader = new ShadertoyPorter(source).portShader;
 
         var type_to_set = [
-            'bool' => shad.setBool,
-            'int' => shad.setInt,
-            'float' => shad.setFloat,
-            'string' => shad.setString
+            'bool' => shader.setBool,
+            'int' => shader.setInt,
+            'float' => shader.setFloat,
+            'string' => shader.setString
         ];
 
         for (arg in uniformSets) {
@@ -67,21 +67,21 @@ class QuickCalls {
             var uniformName:String = arg[1];
             var uniformValue:Dynamic = arg[2];
 
-            var setDaUniform = type_to_set.get(uniformType.toLowerCase(), function(lol) {
+            var setUniform = type_to_set.get(uniformType.toLowerCase(), function(lol) {
                 trace('unsupported uniform type at the moment :(\nplease report to the GitHub!!');
             });
 
-            setDaUniform(uniformName, uniformValue);
+            setUniform(uniformName, uniformValue);
         }
-        return shad;
+        return shader;
     }
     #end
 
     /**
-     * Create a FlxText object with optional additional parameters.
+     * Create a FlxText instance with optional additional parameters.
      *
-     * @param x The x-coordinate of the text.
-     * @param y The y-coordinate of the text.
+     * @param x The x position of the text.
+     * @param y The y position of the text.
      * @param text The text content.
      * @param size The font size.
      * @param width Optional width of the text.
@@ -103,12 +103,12 @@ class QuickCalls {
     }
 
     /**
-     * Create and configure a FlxSprite object with additional options.
+     * Create and configure a FlxSprite instance with additional options.
      *
-     * @param x The x-coordinate of the sprite.
-     * @param y The y-coordinate of the sprite.
+     * @param x The x position of the sprite.
+     * @param y The y position of the sprite.
      * @param graphicPath The path to the sprite's graphic.
-     * @param parent The parent FlxGroup to add the sprite to.
+     * @param parent The FlxGroup to add the sprite to.
      * @param scale An array of x and y scale values.
      * @param scrollFactor Optional scroll factor for the sprite.
      * @return A configured FlxSprite instance.
@@ -125,8 +125,8 @@ class QuickCalls {
     /**
      * Create and configure an animated FlxSprite object.
      *
-     * @param x The x-coordinate of the sprite.
-     * @param y The y-coordinate of the sprite.
+     * @param x The x position of the sprite.
+     * @param y The y position of the sprite.
      * @param graphicPath The path to the sprite's graphic.
      * @param parent The parent FlxGroup to add the sprite to.
      * @param scale An array of x and y scale values.
@@ -134,7 +134,7 @@ class QuickCalls {
      * @param frameRate The animation frame rate.
      * @param animName The name of the animation.
      * @param scrollFactor Optional scroll factor for the sprite.
-     * @return A configured animated FlxSprite instance.
+     * @return a configured animated FlxSprite instance.
      */
     public static function quickAnimatedSprite(x:Float, y:Float, graphicPath:Dynamic, parent:FlxGroup, scale:Array<Float>, frames:Array<Int>, frameRate:Float, ?animName:String = "animation1", ?scrollFactor:FlxPoint = null):FlxSprite {
         var sprite:FlxSprite = new FlxSprite(x, y, graphicPath).scale.set(scale[0], scale[1]);
@@ -150,25 +150,25 @@ class QuickCalls {
     /**
      * Create and configure a particle emitter for particle effects.
      *
-     * @param x The x-coordinate of the emitter.
-     * @param y The y-coordinate of the emitter.
+     * @param x The x position of the emitter.
+     * @param y The y position of the emitter.
      * @param width The width of the emitter.
      * @param height The height of the emitter.
-     * @param particleClass The class for custom particles (optional).
+     * @param particleClass The class for custom particles (optional) :).
      * @param maxParticles The maximum number of particles.
      * @param particleLifespan The lifespan of each particle.
      * @param autoBuffer Whether to automatically buffer particles.
-     * @param frequency The emission frequency.
+     * @param frequency emission frequency.
      * @param gravity Optional gravity settings.
      * @param blend Optional blend mode.
-     * @return A configured FlxEmitter instance for particle effects.
+     * @return A configured FlxEmitter instance for particle effects ready to be used >:D
      */
     public static function quickParticleEmitter(
         x:Float = 0,
         y:Float = 0,
         width:Float = 1280,
         height:Float = 720,
-        particleClass:Class<Dynamic>,
+        particleClass:Dynamic,
         maxParticles:Int = 10,
         particleLifespan:Float = 3,
         autoBuffer:Bool = false,

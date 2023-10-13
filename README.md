@@ -1,71 +1,42 @@
-# Nom Utility package with a bunch of random shit!!!
+# Nom Utility
 
+![Build Status](https://example.com/build-status-badge.svg)
+![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-## EXPERIMENTAL BRANCHES WILL BE GETTING UPDATES FREQUENTLY SO BE AWARE :)))
-
-# Credits
-
-## Main Contributers: 
-
-   Nom (me), 
-
-   Ne_Eo (maybe)
-
-   ChillTeensie
-
-
-## Indirect Contributers: 
-
-   Nebula the zoura (AL Filters on experimental branch)
-
-   flixel devs obviously :) they are awsome
-
-   haxe discord server for suggestions
-
-![Haxe Logo](images/haxe-logo-large.png)
-
-# Overview
-
-
-This is a utility package for HaxeFlixel developers. It provides a set of helpful functions and classes to streamline game development with HaxeFlixel.
+This is a utility package for HaxeFlixel developers, providing a set of helpful functions and classes to streamline game development with HaxeFlixel.
 
 # Installation
 
-To use this utility package in your HaxeFlixel project, follow these simple steps:
+## You can install this utility package via Haxelib:
 
-1. Click on the "Code" button at the top of this GitHub repository.
-
-2. Select "Download ZIP" to download the package as a ZIP file.
-
-3. Unzip the downloaded file to access its contents.
-
-4. Drag the contents of the `src` folder into your HaxeFlixel project's source code directory.
-
-![Installation GIF](images/installation.gif)
+```shell
+haxelib git nom-util https://github.com/nomnom-DV/NomUtility
+```
 
 # Usage
 
-Once you've installed the package, you can start using its features in your HaxeFlixel project. Below are some key points on how to use it:
+## Adding the Library to your project 
 
-1. Import the utility classes you need into your project.
+```xml
+<haxelib name="nom-util" />
+```
+## Import the utility classes you need into your project.
+```haxe
+import nom.*;
+import nom.funkin.*;
+import nom.funkin.*;
+// etc
+```
 
-   ```haxe
-   import nom.*;
-   import nom.funkin.*; 
-   // etc
-   ```	
-2. Start using the functions and classes in your game code to simplify common tasks.
-   ```haxe
-   nomFunkinUtil.initialize();
-   nomUtil.doSomething();
+# License
 
-   IDK!!!! pretty self explanitory
-   ```	
-3. If you encounter any issues or have questions, feel free to open an issue on this GitHub repository for support.
+## This library is released under the MIT License. See LICENSE.md for details.
+
 
 # Contributing
 
-## TO CONTRIBUTE U CAN DO THE FOLLOWING :)
+## Contributions are welcome! To contribute:
 
 -Fork this repository.
 
@@ -75,4 +46,23 @@ Once you've installed the package, you can start using its features in your Haxe
 
 -Your contribution will be reviewed and merged if it aligns with the project's goals.
 
--TELL ME IF U ENCOUNTER ANY ISSUES!!
+## Please report any issues you encounter by opening an issue.
+
+# Credits
+
+## Main Contributors
+
+Nom (me)
+
+Ne_Eo (maybe)
+
+ChillTeensie
+
+## Indirect Contributors
+
+Nebula the zoura (AL Filters on experimental branch)
+
+Flixel devs
+
+Haxe Discord server for suggestions
+

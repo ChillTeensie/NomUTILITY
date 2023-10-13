@@ -1,11 +1,11 @@
 {
-    "name": "NomUtil",
-    "url" : "https://github.com/nomnom-DV/NomUtility",
+    "name": "nom-util",
+    "url": "https://github.com/nomnom-DV/NomUtility",
     "license": "MIT",
     "tags": ["Utility", "Efficiency"],
-    "description": "A Library used to make a coders life WAY easier!!! Includes methods like Quick'X' that make a whole configurated Instance of an object in 1 line :).",
+    "description": "A library used to simplify coding tasks. Includes methods like Quick'X' that configure instances of objects in one line.",
     "version": "0.1.0",
     "classPath": "src/",
-    "releasenote": "Experimental release (Sort of demo).",
-    "contributors": ["nomnom-DV","ChillTeensie"]
+    "releaseNote": "This is an experimental release, Pretty much like a demo.",
+    "contributors": ["nomnom-DV", "ChillTeensie"]
 }

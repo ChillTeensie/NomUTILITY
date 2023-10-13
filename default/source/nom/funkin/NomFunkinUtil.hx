@@ -1,6 +1,6 @@
 package nom.funkin;
 
-// if anyone uses this pls credit me on ya project :p
+// if anyone uses this pls credit me on ya FNF mod :p
 
 import flixel.FlxBasic;
 import flixel.FlxCamera;
