@@ -11,7 +11,7 @@ import flixel.addons.display.FlxRuntimeShader;
 #end
 class QuickCalls {
 
-    #if !flas h
+    #if !flash
 
     // EXAMPLE:
     /*
