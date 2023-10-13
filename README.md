@@ -1,6 +1,5 @@
 # Nom Utility
 
-![Build Status](https://example.com/build-status-badge.svg)
 ![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
@@ -10,7 +9,7 @@ This is a utility package for HaxeFlixel developers, providing a set of helpful 
 
 ## You can install this utility package via Haxelib:
 
-```cmd
+```bash
 haxelib git nom-util https://github.com/nomnom-DV/NomUtility
 ```
 
@@ -31,7 +30,7 @@ import nom.funkin.*;
 
 # License
 
-## This library is released under the MIT License. See LICENSE.md for details.
+## This library is released under the MIT License. See ![LICENSE.md](https://github.com/nomnom-DV/NomUtility/blob/main/LICENSE.md) for details.
 
 
 # Contributing
