@@ -1,6 +1,6 @@
 # Nom Utility
 
-![Version](https://img.shields.io/badge/version-0.1.0-pink.svg)
+![Version](https://img.shields.io/badge/version-0.1.0-purple.svg)
 ![License](https://img.shields.io/badge/license-MIT-red.svg)
 
 This is a utility package for HaxeFlixel developers, providing a set of helpful functions and classes to streamline game development with HaxeFlixel.
