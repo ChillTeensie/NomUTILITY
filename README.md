@@ -10,7 +10,7 @@ This is a utility package for HaxeFlixel developers, providing a set of helpful 
 
 ## You can install this utility package via Haxelib:
 
-```shell
+```cmd
 haxelib git nom-util https://github.com/nomnom-DV/NomUtility
 ```
 
