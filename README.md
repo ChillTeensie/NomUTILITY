@@ -1,9 +1,11 @@
 # Nom Utility
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+![MIT License](https://img.shields.io/badge/license-MIT-green.svg) ![Custom Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/HaxeFlixel_logo.svg/1024px-HaxeFlixel_logo.svg.png)
+![License](https://img.shields.io/badge/license-MIT-green.svg) ![Custom Logo](https://www.mend.io/wp-content/media/2021/04/aHViPTcyNTE0JmNtZD1pdGVtZWRpdG9yaW1hZ2UmZmlsZW5hbWU9aXRlbWVkaXRvcmltYWdlXzVjNDk3OTRhMTc1ZjEucG5nJnZlcnNpb249MDAwMCZzaWc9NmZmMDU2MWFkNjA1ZTU2NDQxNDVmZWJmOTYyYTQwNDk.png)
 
 This is a utility package for HaxeFlixel developers, providing a set of helpful functions and classes to streamline game development with HaxeFlixel.
+
+![logo](images/haxe-logo-large.png)
 
 # Installation
 
@@ -30,7 +32,7 @@ import nom.funkin.*;
 
 # License
 
-## This library is released under the MIT License. See ![LICENSE.md](https://github.com/nomnom-DV/NomUtility/blob/main/LICENSE.md) for details.
+## This library is released under the MIT License. See LICENSE.md for details.
 
 
 # Contributing
