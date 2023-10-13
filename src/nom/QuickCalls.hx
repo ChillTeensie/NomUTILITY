@@ -187,7 +187,7 @@ class QuickCalls {
             autoBuffer:Bool = false, 
             frequency:Float = 0.1, 
             ?gravity:FlxPoint, 
-            ?blend:BlendMode
+            ?blend:Null<BlendMode>
             
         ):FlxEmitter
 
@@ -201,7 +201,7 @@ class QuickCalls {
             emitter.frequency = frequency;
 
             if (gravity != null) emitter.gravity = gravity;
-            if(emitter != null) emitter.blend = blend; 
+            if(blend != null) emitter.blend = blend; 
 
 
             emitter.autoBuffer = autoBuffer; 
