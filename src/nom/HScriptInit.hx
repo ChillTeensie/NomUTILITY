@@ -37,7 +37,7 @@ class HScriptInit{
         trace("HScript Initilized. Use runScript to run a script, executeFunction to execute a function.");
     }
 
-    public function runScript(pathToScript:String,/*?variablesToPass:Array<Array<Dynamic>>*/){
+    public function runScript(pathToScript:String/*,?variablesToPass:Array<Array<Dynamic>>*/){
         if(!FileSystem.exists(pathToScript+".hx")){
             lime.app.Application.current.window.alert("No script found at "+pathToScript+".hx","Hscript Error!");
             return;
