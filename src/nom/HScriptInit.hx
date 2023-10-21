@@ -1,4 +1,4 @@
-package;
+package nom;
 
 import sys.FileSystem;
 import sys.io.File;
