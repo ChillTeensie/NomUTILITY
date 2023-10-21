@@ -37,7 +37,7 @@ class HScriptInit{
         trace("HScript Initilized. Use runScript to run a script, executeFunction to execute a function.");
     }
 
-    public function runScript(pathToScript:String/*,?variablesToPass:Array<Array<Dynamic>>*/){
+    public function runScript(pathToScript:String,?variablesToPass:Array<Array<Dynamic>>){
         if(!FileSystem.exists(pathToScript+".hx")){
             lime.app.Application.current.window.alert("No script found at "+pathToScript+".hx","Hscript Error!");
             return;
@@ -45,11 +45,11 @@ class HScriptInit{
         var rizzler = new hscript.Parser().parseString(File.getContent(pathToScript+".hx"));
         var script = new hscript.Interp();
 
-        /*if(variablesToPass != null){
+        if(variablesToPass != null){
             for (variableTable in variablesToPass){
                 script.variables.set(variableTable[0],variableTable[1]);
             }
-        }*/
+        }
 
         script.execute(rizzler);
         scripts.push(script);
