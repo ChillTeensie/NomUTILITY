@@ -2,8 +2,7 @@ package nom;
 
 import sys.FileSystem;
 import sys.io.File;
-import flixel.FlxSprite;
-import flixel.FlxG;
+import nom.*;
 
 /*
   usage:
@@ -45,6 +44,24 @@ class HScriptInit{
         var rizzler = new hscript.Parser().parseString(File.getContent(pathToScript+".hx"));
         var script = new hscript.Interp();
 
+        script.variables.set("FlxG",flixel.FlxG);
+        script.variables.set("FlxGame",flixel.FlxGame);
+        script.variables.set("FlxState",flixel.FlxState);
+        script.variables.set("FlxSprite",flixel.FlxSprite);
+        script.variables.set("FlxCamera",flixel.FlxCamera);
+        script.variables.set("FlxObject",flixel.FlxObject);
+        script.variables.set("FlxBasic",flixel.FlxBasic);
+        script.variables.set("QuickCalls",nom.QuickCalls);
+        script.variables.set("NomEasyApi",nom.NomEasyApi);
+        script.variables.set("FlxTimer",flixel.util.FlxTimer);
+        script.variables.set("FlxCollision",flixel.util.FlxCollision);
+        script.variables.set("FlxColor",flixel.util.FlxColor);
+        script.variables.set("FlxGradient",flixel.util.FlxGradient);
+        script.variables.set("FlxSpriteUtil",flixel.util.FlxSpriteUtil);
+        script.variables.set("FlxBar",flixel.ui.FlxBar);
+        script.variables.set("FlxButton",flixel.ui.FlxButton);
+        script.variables.set("FlxSpriteButton",flixel.ui.FlxSpriteButton);
+        script.variables.set("FlxTypedButton",flixel.ui.FlxTypedButton);
         if(variablesToPass != null){
             for (variableTable in variablesToPass){
                 script.variables.set(variableTable[0],variableTable[1]);
